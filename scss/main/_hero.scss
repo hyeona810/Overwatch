@@ -1,0 +1,246 @@
+#hero {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../images/background/guide_bg.jpg);
+  position: relative;
+
+  &.on {
+    .hero_left_wrap {
+      left: 15%;
+      opacity: 1;
+      transition: left 1s 0.3s, opacity 0.5s 0.5s;
+    }
+
+    .card {
+      top: 15%;
+      opacity: 1;
+      transition: 0.8s 1s;
+    }
+  }
+
+  .hero_left_wrap {
+    position: absolute;
+    top: 20%;
+    left: -15%;
+    width: 40%;
+    height: 50%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+
+    .hero_title {
+      font: bold 50px/1 "맑은고딕";
+      color: #fff;
+      margin-bottom: 50px;
+    }
+    .hero_tab {
+      ul {
+        width: 100%;
+        display: flex;
+        margin-bottom: 50px;
+        margin-right: 20px;
+
+        li {
+          &.on {
+            a {
+              color: $main_color_deep;
+              border-bottom: 2px solid $main_color_deep;
+            }
+          }
+
+          a {
+            padding: 10px;
+            display: block;
+            font: bold 20px/1 "맑은고딕";
+            color: $default_color_light;
+            transition: 0.5s;
+
+            &:hover {
+              color: $main_color_deep;
+            }
+          }
+        }
+      }
+    }
+
+    .hero_description {
+      width: 100%;
+      height: 200px;
+      ul {
+        width: 100%;
+        height: 20vh;
+        display: flex;
+
+        li {
+          position: relative;
+          display: none;
+          height: 20vh;
+          transition: 0.5s;
+          top: -50%;
+          opacity: 0;
+
+          &.on {
+            display: block;
+            top: 0%;
+            opacity: 1;
+          }
+          p {
+            margin-bottom: 50px;
+            font: normal 16px/1.5 "맑은고딕";
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .viewMore {
+      width: 100px;
+      padding: 8px 15px;
+      font: bold 16px/1 "맑은고딕";
+      text-align: center;
+      color: #fff;
+      background-color: $main_color;
+      border-radius: 5px;
+    }
+  }
+
+  // card
+
+  .card {
+    width: calc(1000px / 1.5); /* 카드의 너비를 변수로 설정 */
+    height: 1000px; /* 카드의 높이를 변수로 설정 */
+    position: absolute; /* 상대적인 위치 설정 */
+    top: -10%;
+    left: 65%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    display: flex; /* 내용을 가운데 정렬하기 위해 플렉스 박스 사용 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    align-items: flex-end; /* 세로 아래쪽 정렬 */
+    padding: 0 36px; /* 좌우 패딩 설정 */
+    perspective: 2500px; /* 3D 변형 효과를 위한 원근거리 설정 */
+    // margin: 0 50px; /* 좌우 마진 설정 */
+
+    .lines {
+      position: absolute;
+      inset: 0;
+      background-color: #000;
+      overflow: hidden;
+      width: 676px;
+      height: 390px;
+      left: -5px;
+      top: 61.5%;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 1500px; //
+        height: 600px; //
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: linear-gradient(
+          transparent,
+          #45f3ffc4,
+          #57677c,
+          #738052,
+          transparent
+        );
+        animation: card 4s linear infinite;
+      }
+    }
+
+    .cover-image {
+      width: 100%; /* 커버 이미지 너비 100%로 설정 */
+      height: 100%; /* 커버 이미지 높이 100%로 설정 */
+      object-fit: cover; /* 이미지가 요소에 맞게 잘리지 않고 채워지도록 설정 */
+    }
+
+    .wrapper {
+      transition: all 0.5s; /* 모든 스타일 변경에 0.5초의 전환 효과 추가 */
+      position: absolute; /* 절대적인 위치 설정 */
+      width: 100%; /* 너비 100%로 설정 */
+      z-index: -1; /* 배경으로 요소 배치를 위해 z-index를 -1로 설정 */
+
+      z-index: 10;
+
+      &::before,
+      &::after {
+        content: ""; /* 가상 요소의 내용 설정 */
+        opacity: 0; /* 초기에 투명도 0으로 설정 */
+        width: 100%; /* 너비 100%로 설정 */
+        height: 80px; /* 높이 80px로 설정 */
+        transition: all 0.5s; /* 모든 스타일 변경에 0.5초의 전환 효과 추가 */
+        position: absolute; /* 절대적인 위치 설정 */
+        left: 0; /* 왼쪽 위치 0으로 설정 */
+      }
+
+      &::before {
+        top: 0; /* 위쪽 위치 0으로 설정 */
+        height: 100%; /* 높이 100%로 설정 */
+        background-image: linear-gradient(
+          to top,
+          transparent 46%,
+          rgba(12, 13, 19, 0.5) 68%,
+          rgba(12, 13, 19) 97%
+        ); /* 그라디언트 배경 이미지 설정 */
+      }
+
+      &::after {
+        bottom: 0; /* 아래쪽 위치 0으로 설정 */
+        opacity: 1; /* 투명도 1로 설정 */
+        background-image: linear-gradient(
+          to bottom,
+          transparent 46%,
+          rgba(12, 13, 19, 0.5) 68%,
+          rgba(12, 13, 19) 97%
+        ); /* 그라디언트 배경 이미지 설정 */
+      }
+    }
+
+    &:hover {
+      // #hero {
+      //   background-image: url(../images/키리코\ 배경.jpg);
+      // }
+
+      .lines {
+        display: none;
+      }
+
+      .wrapper {
+        /* 카드에 호버 시의 .wrapper 스타일 설정 */
+        transform: perspective(900px) translateY(20%) rotateX(25deg)
+          translateZ(0); /* 3D 변형 효과 적용 */
+        box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* 그림자 효과 추가 */
+        -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* 웹킷 브라우저용 그림자 효과 추가 */
+        -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* 모질라 브라우저용 그림자 효과 추가 */
+        &::before,
+        &::after {
+          opacity: 1; /* 호버 시 가상 요소의 투명도 1로 설정 */
+        }
+
+        &::after {
+          height: 120px; /* 호버 시 가상 요소 높이 120px로 설정 */
+        }
+      }
+
+      .character {
+        opacity: 1; /* 호버 시 투명도 1로 설정하여 이미지 표시 */
+        transform: translate3d(
+          5%,
+          20%,
+          100px
+        ); /* 3D 변형을 사용하여 요소 이동 */
+      }
+    }
+
+    .character {
+      width: 100%; /* 너비 100%로 설정 */
+      opacity: 0; /* 초기에 투명도 0으로 설정 */
+      transition: all 0.5s; /* 모든 스타일 변경에 0.5초의 전환 효과 추가 */
+      position: absolute; /* 절대적인 위치 설정 */
+      z-index: 10; /* 배경으로 요소 배치를 위해 z-index를 -1로 설정 */
+    }
+  }
+}

@@ -1,0 +1,679 @@
+$tablet: 1179px;
+$mobile: 539px;
+
+#league {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #eee; // 나중에 수정하기
+  position: relative;
+
+  .league_left_wrap {
+    width: 50%;
+    height: 100%;
+    // margin: 0 auto;
+    position: relative;
+    transition: 1s 0.5s;
+
+    &.on {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+
+      .league_open_arrow {
+        display: block;
+      }
+
+      // .league_schedule {
+      //   ul {
+      //     li {
+      //       width: 100%;
+      //     }
+      //   }
+      // }
+    }
+
+    .league_logo {
+      position: absolute;
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .league_schedule {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+
+      h3 {
+        font: bold 20px/1.7 "맑은고딕";
+        color: #fff; // 수정하기
+        // text-align: center;
+        position: relative;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        display: block;
+
+        &::after {
+          content: "";
+          width: 40%;
+          height: 200px;
+          display: block;
+          clip-path: polygon(0 0, 100% 0, 95% 18%, 0 18%);
+          background-color: $default_color;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -10;
+        }
+      }
+
+      ul {
+        display: flex;
+        gap: 10px;
+
+        li {
+          width: (70% / 3);
+          height: 200px;
+          // background-color: aqua;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid $default_color;
+          border-radius: 5px;
+          transition: 0.5s;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid $default_color_light;
+            span {
+              color: $default_color_light;
+            }
+            p {
+              color: $default_color_light;
+            }
+          }
+
+          .text_wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: space-evenly;
+            text-align: center;
+            width: 100px;
+            height: 200px;
+
+            span {
+              font: 40px/1 $en_font;
+              letter-spacing: 1px;
+              margin-bottom: 50px;
+              margin-top: -30px;
+            }
+
+            p {
+              font: 25px/1 $en_font;
+              letter-spacing: 2px;
+            }
+          }
+        }
+      }
+    }
+
+    .league_video {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+
+      h3 {
+        font: bold 20px/1.7 "맑은고딕";
+        color: #fff; // 수정하기
+        text-align: right;
+        position: relative;
+        margin-bottom: 20px;
+        padding-right: 20px;
+        display: block;
+
+        &::after {
+          content: "";
+          width: 40%;
+          height: 200px;
+          display: block;
+          clip-path: polygon(0 0, 100% 0, 100% 18%, 5% 18%);
+          background-color: $default_color;
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: -10;
+        }
+      }
+
+      ul {
+        display: flex;
+
+        li {
+          width: (80% / 3);
+          height: 200px;
+          margin: 0 auto;
+
+          a {
+            width: 100%;
+            height: 100%;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 5px;
+
+              .con {
+                width: 100%;
+                height: 100px;
+
+                h4 {
+                  font: bold 16px/1 "맑은고딕";
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .pop {
+        width: 100%;
+        height: 80vh;
+        position: fixed;
+        top: -180%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+        padding: 2vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+
+        .btnClose {
+          position: absolute;
+          top: 50px;
+          right: 100px;
+          color: #fff;
+          font: normal 20px/1 $en_font;
+          cursor: pointer;
+
+          background-color: rgba(0, 0, 0, 0.3);
+          border-radius: 5px;
+          letter-spacing: 2px;
+          padding: 10px 20px;
+        }
+      }
+    }
+
+    .league_open_arrow {
+      width: 100px;
+      height: 100px;
+      display: none;
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: league_arrow 3s linear infinite;
+      }
+    }
+  }
+
+  .league_right_wrap {
+    background-color: rgba(201, 214, 210, 0.1);
+    position: absolute;
+    right: -50%;
+    top: 0;
+    z-index: -10;
+    width: 50%;
+    height: 100%;
+    // background-color: antiquewhite;
+    opacity: 0;
+    // display: none;
+
+    transition: 1s 0.7s; // display는 왜 트랜지션이 안먹지?
+
+    &.on {
+      opacity: 1;
+      z-index: 300;
+      right: 0;
+      box-shadow: -10px -2px 10px rgba(0, 0, 0, 0.05);
+      // display: block;
+
+      .content_wrap {
+        background-image: url("../../images/player/huston_bg.png");
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 50%;
+
+        h2 {
+          left: 5%;
+          opacity: 1;
+          transition: 1s 0.5s;
+        }
+
+        p {
+          left: 6%;
+          opacity: 1;
+          transition: 1s 0.7s;
+        }
+
+        img {
+          right: 5%;
+          opacity: 1;
+          transition: 1s 1s;
+        }
+      }
+    }
+
+    .content_wrap {
+      width: 100%;
+      height: 80%;
+      position: absolute;
+      top: 20%;
+      left: 0;
+
+      h2 {
+        position: absolute;
+        left: -50%;
+        top: 0%;
+        opacity: 0;
+
+        font: 100px/1 $en_font;
+        font-style: italic;
+        letter-spacing: 2px;
+      }
+
+      p {
+        position: absolute;
+        left: -50%;
+        top: 50%;
+        opacity: 0;
+        font: 90px/1 $en_font;
+        font-style: italic;
+        color: #be0a0a;
+        letter-spacing: 3px;
+        border-bottom: 5px double #be0a0a;
+      }
+
+      img {
+        position: absolute;
+        right: -50%;
+        bottom: 0%;
+        opacity: 0;
+      }
+
+      .league_close_arrow {
+        width: 60px;
+        height: 60px;
+        display: block;
+        position: absolute;
+        left: 3%;
+        top: -5%;
+        transform: translateY(-50%) rotateY(180deg);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          animation: league_arrow 3s linear infinite;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  #league {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #eee; // 나중에 수정하기
+    position: relative;
+
+    .league_left_wrap {
+      width: 50%;
+      height: 100%;
+      // margin: 0 auto;
+      position: relative;
+      transition: 1s 0.5s;
+
+      &.on {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+
+        .league_open_arrow {
+          display: block;
+        }
+
+        // .league_schedule {
+        //   ul {
+        //     li {
+        //       width: 100%;
+        //     }
+        //   }
+        // }
+      }
+
+      .league_logo {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .league_schedule {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+
+        h3 {
+          font: bold 20px/1.7 "맑은고딕";
+          color: #fff; // 수정하기
+          // text-align: center;
+          position: relative;
+          margin-bottom: 20px;
+          padding-left: 20px;
+          display: block;
+
+          &::after {
+            content: "";
+            width: 40%;
+            height: 200px;
+            display: block;
+            clip-path: polygon(0 0, 100% 0, 95% 18%, 0 18%);
+            background-color: $default_color;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -10;
+          }
+        }
+
+        ul {
+          display: flex;
+          gap: 10px;
+
+          li {
+            width: (100% / 3);
+            height: 200px;
+            // background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid $default_color;
+            border-radius: 5px;
+            transition: 0.5s;
+            cursor: pointer;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.5);
+              border: 1px solid $default_color_light;
+              span {
+                color: $default_color_light;
+              }
+              p {
+                color: $default_color_light;
+              }
+            }
+
+            .text_wrap {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-content: space-evenly;
+              text-align: center;
+              width: 100px;
+              height: 200px;
+
+              span {
+                font: 40px/1 $en_font;
+                letter-spacing: 1px;
+                margin-bottom: 50px;
+                margin-top: -30px;
+              }
+
+              p {
+                font: 25px/1 $en_font;
+                letter-spacing: 2px;
+              }
+            }
+          }
+        }
+      }
+
+      .league_video {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+
+        h3 {
+          font: bold 20px/1.7 "맑은고딕";
+          color: #fff; // 수정하기
+          text-align: right;
+          position: relative;
+          margin-bottom: 20px;
+          padding-right: 20px;
+          display: block;
+
+          &::after {
+            content: "";
+            width: 40%;
+            height: 200px;
+            display: block;
+            clip-path: polygon(0 0, 100% 0, 100% 18%, 5% 18%);
+            background-color: $default_color;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -10;
+          }
+        }
+
+        ul {
+          display: flex;
+
+          li {
+            width: (80% / 3);
+            height: 200px;
+            margin: 0 auto;
+
+            a {
+              width: 100%;
+              height: 100%;
+
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 5px;
+
+                .con {
+                  width: 100%;
+                  height: 100px;
+
+                  h4 {
+                    font: bold 16px/1 "맑은고딕";
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .pop {
+          width: 100%;
+          height: 80vh;
+          position: fixed;
+          top: -180%;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.8);
+          overflow: hidden;
+          padding: 2vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+
+          .btnClose {
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            color: #fff;
+            font: normal 20px/1 $en_font;
+            cursor: pointer;
+
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+          }
+        }
+      }
+
+      .league_open_arrow {
+        // width: 100px;
+        // height: 100px;
+        // display: none;
+        // position: absolute;
+        // right: 5%;
+        // top: 50%;
+        // transform: translateY(-50%);
+        // z-index: 100;
+        display: none;
+        position: absolute;
+        top: -9999999999px;
+        opacity: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          animation: league_arrow 3s linear infinite;
+        }
+      }
+    }
+
+    .league_right_wrap {
+      // display: none;
+      background-color: rgba(201, 214, 210, 0.1);
+      position: absolute;
+      right: -50%;
+      top: 0;
+      z-index: -10;
+      width: 50%;
+      height: 100%;
+      // background-color: antiquewhite;
+      opacity: 0;
+      // display: none;
+
+      transition: 1s 0.7s; // display는 왜 트랜지션이 안먹지?
+
+      &.on {
+        opacity: 1;
+        z-index: 300;
+        right: 0;
+        box-shadow: -10px -2px 10px rgba(0, 0, 0, 0.05);
+        // display: block;
+
+        .content_wrap {
+          background-image: url("../../images/player/huston_bg.png");
+          background-repeat: no-repeat;
+          background-position: center top;
+          background-size: 50%;
+
+          h2 {
+            left: 5%;
+            opacity: 1;
+            transition: 1s 0.5s;
+          }
+
+          p {
+            left: 6%;
+            opacity: 1;
+            transition: 1s 0.7s;
+          }
+
+          img {
+            right: 5%;
+            opacity: 1;
+            transition: 1s 1s;
+          }
+        }
+      }
+
+      .content_wrap {
+        width: 100%;
+        height: 80%;
+        position: absolute;
+        top: 20%;
+        left: 0;
+
+        h2 {
+          position: absolute;
+          left: -50%;
+          top: 0%;
+          opacity: 0;
+
+          font: 100px/1 $en_font;
+          font-style: italic;
+          letter-spacing: 2px;
+        }
+
+        p {
+          position: absolute;
+          left: -50%;
+          top: 50%;
+          opacity: 0;
+          font: 90px/1 $en_font;
+          font-style: italic;
+          color: #be0a0a;
+          letter-spacing: 3px;
+          border-bottom: 5px double #be0a0a;
+        }
+
+        img {
+          position: absolute;
+          right: -50%;
+          bottom: 0%;
+          opacity: 0;
+        }
+
+        .league_close_arrow {
+          width: 60px;
+          height: 60px;
+          display: block;
+          position: absolute;
+          left: 3%;
+          top: -5%;
+          transform: translateY(-50%) rotateY(180deg);
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: league_arrow 3s linear infinite;
+          }
+        }
+      }
+    }
+  }
+}

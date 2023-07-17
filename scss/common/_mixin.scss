@@ -1,0 +1,13 @@
+// @mixin => _mixin.scss에 변수 만들기
+// @mixin(){} => ()안에 매개변수, {}안에 디폴트값
+// @incloud => style.scss에 불러오기
+
+//
+
+@mixin clear {
+  &::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}

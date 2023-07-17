@@ -1,0 +1,2664 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@100&family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  position: absolute;
+  top: -9999999px;
+  opacity: 0;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@keyframes btn_gameStart {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+@keyframes card {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes profile {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes grandmaster {
+  0% {
+    filter: brightness(0.7);
+  }
+  25% {
+    filter: brightness(0.9);
+  }
+  60% {
+    filter: brightness(1.1);
+  }
+  100% {
+    filter: brightness(0.7);
+  }
+}
+@keyframes league_arrow {
+  0% {
+    filter: hue-rotate(180deg) brightness(0.5);
+    transform: scale(0.8);
+  }
+  25% {
+    filter: brightness(0.9);
+  }
+  60% {
+    filter: brightness(1.1);
+    transform: scale(1);
+  }
+  100% {
+    filter: brightness(0.7);
+    transform: scale(0.8);
+  }
+}
+@keyframes news_animation_bg {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes news_animation_span {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+@keyframes main_slide_logo {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+@keyframes main_slide_underbar {
+  0% {
+    bottom: 20px;
+    background: linear-gradient(150deg, #ea6605, rgba(0, 0, 0, 0.1));
+  }
+  50% {
+    bottom: 0%;
+    background: linear-gradient(-45deg, #ea6605, rgba(0, 0, 0, 0.1));
+  }
+  100% {
+    bottom: 20px;
+    background: linear-gradient(150deg, #ea6605, rgba(0, 0, 0, 0.1));
+  }
+}
+@keyframes carousel {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%, 100% {
+    right: 100%;
+  }
+}
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+@keyframes ranking-btn-anim1 {
+  0% {
+    opacity: 0;
+    left: -100%;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
+}
+@keyframes ranking-btn-anim2 {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 100%;
+  }
+}
+@keyframes ranking-btn-anim3 {
+  0% {
+    opacity: 0;
+    right: -100%;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    right: 100%;
+  }
+}
+@keyframes ranking-btn-anim4 {
+  0% {
+    opacity: 0;
+    bottom: -100%;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    bottom: 100%;
+  }
+}
+@keyframes result_logo {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+#main_slide {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+#main_slide h2 {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: main_slide_logo 3s linear infinite;
+  z-index: 4;
+}
+#main_slide .underBar {
+  width: 3px;
+  height: 70px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  animation: main_slide_underbar 2s linear infinite;
+  z-index: 5;
+}
+#main_slide .panel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#main_slide .panel li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s;
+  z-index: 1;
+  opacity: 0;
+}
+#main_slide .panel li.on {
+  opacity: 1;
+  z-index: 2;
+}
+#main_slide .btn_wrap {
+  width: 8vw;
+  height: 3vw;
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  z-index: 10;
+}
+#main_slide .btn_wrap .btns {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#main_slide .btn_wrap .btns li {
+  width: 0.8vw;
+  height: 0.8vw;
+  border-radius: 50%;
+  background-color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#main_slide .btn_wrap .btns li.on {
+  background-color: #24a1e0;
+  width: 1.2vw;
+  height: 1.2vw;
+}
+#main_slide .btn_wrap .slide_bar {
+  position: absolute;
+  height: 0.1vw;
+  background-color: #559de0;
+  left: 0;
+  top: 50%;
+  z-index: -1;
+}
+
+@media screen and (max-width: 1179px) {
+  #main_slide .panel li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+#news {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../images/);
+}
+#news .wrap {
+  margin: 150px auto;
+  width: 1305px;
+  height: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+}
+#news .wrap article {
+  overflow: hidden;
+}
+#news .wrap article a {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+}
+#news .wrap article a img {
+  border-radius: 10px;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+#news .wrap article a img:nth-of-type(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#news .wrap article:nth-of-type(1) {
+  margin-right: 100px;
+}
+#news .wrap article:nth-of-type(1) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#news .wrap article:nth-of-type(1):hover img:nth-of-type(1) {
+  transform: scale(1.2);
+}
+#news .wrap article:nth-of-type(2) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#news .wrap article:nth-of-type(2):hover img:nth-of-type(1) {
+  transform: scale(1.2);
+}
+#news .wrap article:nth-of-type(3) {
+  margin-top: 50px;
+}
+#news .wrap article:nth-of-type(3) img:nth-of-type(1) {
+  left: -100px;
+  top: 1px;
+  height: 100%;
+  display: block;
+}
+#news .wrap article:nth-of-type(3) img:nth-of-type(2) {
+  left: -10%;
+  transform: scale(0.8);
+}
+#news .wrap article:nth-of-type(3):hover img:nth-of-type(1) {
+  animation: news_animation_bg 2s ease-in-out;
+}
+#news .wrap article:nth-of-type(3):hover img:nth-of-type(2) {
+  animation: news_animation_span 2s ease-in-out;
+}
+
+@media screen and (max-width: 1179px) {
+  #news .wrap {
+    margin: 200px 100px;
+    width: 70%;
+    height: 85%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-content: center;
+  }
+  #news .wrap article {
+    margin-bottom: 50px;
+    width: 100%;
+  }
+  #news .wrap article a img {
+    border-radius: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+  }
+  #news .wrap article a img:nth-of-type(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #news .wrap article:nth-of-type(1) {
+    margin-right: 0px;
+  }
+  #news .wrap article:nth-of-type(1) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #news .wrap article:nth-of-type(1):hover img:nth-of-type(1) {
+    transform: scale(1.2);
+  }
+  #news .wrap article:nth-of-type(2) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #news .wrap article:nth-of-type(2):hover img:nth-of-type(1) {
+    transform: scale(1.2);
+  }
+  #news .wrap article:nth-of-type(3) {
+    margin-top: 50px;
+  }
+  #news .wrap article:nth-of-type(3) img:nth-of-type(1) {
+    left: -100px;
+    top: 1px;
+    height: 100%;
+    display: block;
+  }
+  #news .wrap article:nth-of-type(3) img:nth-of-type(2) {
+    left: -10%;
+    transform: scale(0.8);
+  }
+  #news .wrap article:nth-of-type(3):hover img:nth-of-type(1) {
+    animation: news_animation_bg 2s ease-in-out;
+  }
+  #news .wrap article:nth-of-type(3):hover img:nth-of-type(2) {
+    animation: news_animation_span 2s ease-in-out;
+  }
+}
+#league {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #eee;
+  position: relative;
+}
+#league .league_left_wrap {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  transition: 1s 0.5s;
+}
+#league .league_left_wrap.on {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+#league .league_left_wrap.on .league_open_arrow {
+  display: block;
+}
+#league .league_left_wrap .league_logo {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#league .league_left_wrap .league_schedule {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+#league .league_left_wrap .league_schedule h3 {
+  font: bold 20px/1.7 "맑은고딕";
+  color: #fff;
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  display: block;
+}
+#league .league_left_wrap .league_schedule h3::after {
+  content: "";
+  width: 40%;
+  height: 200px;
+  display: block;
+  clip-path: polygon(0 0, 100% 0, 95% 18%, 0 18%);
+  background-color: #494949;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+#league .league_left_wrap .league_schedule ul {
+  display: flex;
+  gap: 10px;
+}
+#league .league_left_wrap .league_schedule ul li {
+  width: 23.3333333333%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #494949;
+  border-radius: 5px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#league .league_left_wrap .league_schedule ul li:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #fff;
+}
+#league .league_left_wrap .league_schedule ul li:hover span {
+  color: #fff;
+}
+#league .league_left_wrap .league_schedule ul li:hover p {
+  color: #fff;
+}
+#league .league_left_wrap .league_schedule ul li .text_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-evenly;
+  text-align: center;
+  width: 100px;
+  height: 200px;
+}
+#league .league_left_wrap .league_schedule ul li .text_wrap span {
+  font: 40px/1 "Staatliches";
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+  margin-top: -30px;
+}
+#league .league_left_wrap .league_schedule ul li .text_wrap p {
+  font: 25px/1 "Staatliches";
+  letter-spacing: 2px;
+}
+#league .league_left_wrap .league_video {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+#league .league_left_wrap .league_video h3 {
+  font: bold 20px/1.7 "맑은고딕";
+  color: #fff;
+  text-align: right;
+  position: relative;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  display: block;
+}
+#league .league_left_wrap .league_video h3::after {
+  content: "";
+  width: 40%;
+  height: 200px;
+  display: block;
+  clip-path: polygon(0 0, 100% 0, 100% 18%, 5% 18%);
+  background-color: #494949;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -10;
+}
+#league .league_left_wrap .league_video ul {
+  display: flex;
+}
+#league .league_left_wrap .league_video ul li {
+  width: 26.6666666667%;
+  height: 200px;
+  margin: 0 auto;
+}
+#league .league_left_wrap .league_video ul li a {
+  width: 100%;
+  height: 100%;
+}
+#league .league_left_wrap .league_video ul li a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+#league .league_left_wrap .league_video ul li a img .con {
+  width: 100%;
+  height: 100px;
+}
+#league .league_left_wrap .league_video ul li a img .con h4 {
+  font: bold 16px/1 "맑은고딕";
+}
+#league .league_left_wrap .league_video .pop {
+  width: 100%;
+  height: 80vh;
+  position: fixed;
+  top: -180%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  padding: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+#league .league_left_wrap .league_video .pop .btnClose {
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  color: #fff;
+  font: normal 20px/1 "Staatliches";
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+}
+#league .league_left_wrap .league_open_arrow {
+  width: 100px;
+  height: 100px;
+  display: none;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+#league .league_left_wrap .league_open_arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: league_arrow 3s linear infinite;
+}
+#league .league_right_wrap {
+  background-color: rgba(201, 214, 210, 0.1);
+  position: absolute;
+  right: -50%;
+  top: 0;
+  z-index: -10;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s 0.7s;
+}
+#league .league_right_wrap.on {
+  opacity: 1;
+  z-index: 300;
+  right: 0;
+  box-shadow: -10px -2px 10px rgba(0, 0, 0, 0.05);
+}
+#league .league_right_wrap.on .content_wrap {
+  background-image: url("../../images/player/huston_bg.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 50%;
+}
+#league .league_right_wrap.on .content_wrap h2 {
+  left: 5%;
+  opacity: 1;
+  transition: 1s 0.5s;
+}
+#league .league_right_wrap.on .content_wrap p {
+  left: 6%;
+  opacity: 1;
+  transition: 1s 0.7s;
+}
+#league .league_right_wrap.on .content_wrap img {
+  right: 5%;
+  opacity: 1;
+  transition: 1s 1s;
+}
+#league .league_right_wrap .content_wrap {
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 20%;
+  left: 0;
+}
+#league .league_right_wrap .content_wrap h2 {
+  position: absolute;
+  left: -50%;
+  top: 0%;
+  opacity: 0;
+  font: 100px/1 "Staatliches";
+  font-style: italic;
+  letter-spacing: 2px;
+}
+#league .league_right_wrap .content_wrap p {
+  position: absolute;
+  left: -50%;
+  top: 50%;
+  opacity: 0;
+  font: 90px/1 "Staatliches";
+  font-style: italic;
+  color: #be0a0a;
+  letter-spacing: 3px;
+  border-bottom: 5px double #be0a0a;
+}
+#league .league_right_wrap .content_wrap img {
+  position: absolute;
+  right: -50%;
+  bottom: 0%;
+  opacity: 0;
+}
+#league .league_right_wrap .content_wrap .league_close_arrow {
+  width: 60px;
+  height: 60px;
+  display: block;
+  position: absolute;
+  left: 3%;
+  top: -5%;
+  transform: translateY(-50%) rotateY(180deg);
+}
+#league .league_right_wrap .content_wrap .league_close_arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: league_arrow 3s linear infinite;
+}
+
+@media screen and (max-width: 1179px) {
+  #league {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #eee;
+    position: relative;
+  }
+  #league .league_left_wrap {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    transition: 1s 0.5s;
+  }
+  #league .league_left_wrap.on {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  #league .league_left_wrap.on .league_open_arrow {
+    display: block;
+  }
+  #league .league_left_wrap .league_logo {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #league .league_left_wrap .league_schedule {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+  #league .league_left_wrap .league_schedule h3 {
+    font: bold 20px/1.7 "맑은고딕";
+    color: #fff;
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    display: block;
+  }
+  #league .league_left_wrap .league_schedule h3::after {
+    content: "";
+    width: 40%;
+    height: 200px;
+    display: block;
+    clip-path: polygon(0 0, 100% 0, 95% 18%, 0 18%);
+    background-color: #494949;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+  }
+  #league .league_left_wrap .league_schedule ul {
+    display: flex;
+    gap: 10px;
+  }
+  #league .league_left_wrap .league_schedule ul li {
+    width: 33.3333333333%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #494949;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  #league .league_left_wrap .league_schedule ul li:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #fff;
+  }
+  #league .league_left_wrap .league_schedule ul li:hover span {
+    color: #fff;
+  }
+  #league .league_left_wrap .league_schedule ul li:hover p {
+    color: #fff;
+  }
+  #league .league_left_wrap .league_schedule ul li .text_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-evenly;
+    text-align: center;
+    width: 100px;
+    height: 200px;
+  }
+  #league .league_left_wrap .league_schedule ul li .text_wrap span {
+    font: 40px/1 "Staatliches";
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    margin-top: -30px;
+  }
+  #league .league_left_wrap .league_schedule ul li .text_wrap p {
+    font: 25px/1 "Staatliches";
+    letter-spacing: 2px;
+  }
+  #league .league_left_wrap .league_video {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+  #league .league_left_wrap .league_video h3 {
+    font: bold 20px/1.7 "맑은고딕";
+    color: #fff;
+    text-align: right;
+    position: relative;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    display: block;
+  }
+  #league .league_left_wrap .league_video h3::after {
+    content: "";
+    width: 40%;
+    height: 200px;
+    display: block;
+    clip-path: polygon(0 0, 100% 0, 100% 18%, 5% 18%);
+    background-color: #494949;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10;
+  }
+  #league .league_left_wrap .league_video ul {
+    display: flex;
+  }
+  #league .league_left_wrap .league_video ul li {
+    width: 26.6666666667%;
+    height: 200px;
+    margin: 0 auto;
+  }
+  #league .league_left_wrap .league_video ul li a {
+    width: 100%;
+    height: 100%;
+  }
+  #league .league_left_wrap .league_video ul li a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  #league .league_left_wrap .league_video ul li a img .con {
+    width: 100%;
+    height: 100px;
+  }
+  #league .league_left_wrap .league_video ul li a img .con h4 {
+    font: bold 16px/1 "맑은고딕";
+  }
+  #league .league_left_wrap .league_video .pop {
+    width: 100%;
+    height: 80vh;
+    position: fixed;
+    top: -180%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    padding: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+  #league .league_left_wrap .league_video .pop .btnClose {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    color: #fff;
+    font: normal 20px/1 "Staatliches";
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+  }
+  #league .league_left_wrap .league_open_arrow {
+    display: none;
+    position: absolute;
+    top: -9999999999px;
+    opacity: 0;
+  }
+  #league .league_left_wrap .league_open_arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: league_arrow 3s linear infinite;
+  }
+  #league .league_right_wrap {
+    background-color: rgba(201, 214, 210, 0.1);
+    position: absolute;
+    right: -50%;
+    top: 0;
+    z-index: -10;
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    transition: 1s 0.7s;
+  }
+  #league .league_right_wrap.on {
+    opacity: 1;
+    z-index: 300;
+    right: 0;
+    box-shadow: -10px -2px 10px rgba(0, 0, 0, 0.05);
+  }
+  #league .league_right_wrap.on .content_wrap {
+    background-image: url("../../images/player/huston_bg.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 50%;
+  }
+  #league .league_right_wrap.on .content_wrap h2 {
+    left: 5%;
+    opacity: 1;
+    transition: 1s 0.5s;
+  }
+  #league .league_right_wrap.on .content_wrap p {
+    left: 6%;
+    opacity: 1;
+    transition: 1s 0.7s;
+  }
+  #league .league_right_wrap.on .content_wrap img {
+    right: 5%;
+    opacity: 1;
+    transition: 1s 1s;
+  }
+  #league .league_right_wrap .content_wrap {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 20%;
+    left: 0;
+  }
+  #league .league_right_wrap .content_wrap h2 {
+    position: absolute;
+    left: -50%;
+    top: 0%;
+    opacity: 0;
+    font: 100px/1 "Staatliches";
+    font-style: italic;
+    letter-spacing: 2px;
+  }
+  #league .league_right_wrap .content_wrap p {
+    position: absolute;
+    left: -50%;
+    top: 50%;
+    opacity: 0;
+    font: 90px/1 "Staatliches";
+    font-style: italic;
+    color: #be0a0a;
+    letter-spacing: 3px;
+    border-bottom: 5px double #be0a0a;
+  }
+  #league .league_right_wrap .content_wrap img {
+    position: absolute;
+    right: -50%;
+    bottom: 0%;
+    opacity: 0;
+  }
+  #league .league_right_wrap .content_wrap .league_close_arrow {
+    width: 60px;
+    height: 60px;
+    display: block;
+    position: absolute;
+    left: 3%;
+    top: -5%;
+    transform: translateY(-50%) rotateY(180deg);
+  }
+  #league .league_right_wrap .content_wrap .league_close_arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: league_arrow 3s linear infinite;
+  }
+}
+#ranking {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../images/background/ranking_bg.jpg);
+  position: relative;
+}
+#ranking.on .text_wrap {
+  opacity: 1;
+  top: 12%;
+  transition: top 1s 0.3s, opacity 0.5s 0.5s;
+}
+#ranking.on .ranking_box {
+  opacity: 1;
+  top: 30%;
+  transition: 0.8s 1s;
+}
+#ranking.on > img {
+  opacity: 1;
+  right: 4%;
+  transition: 0.8s 1.5s;
+}
+#ranking .text_wrap {
+  position: absolute;
+  top: 0%;
+  left: 25%;
+  width: 800px;
+  opacity: 0;
+}
+#ranking .text_wrap .ranking_title {
+  font: bold 50px/1 "맑은고딕";
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+#ranking .text_wrap > ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-bottom: 50px;
+}
+#ranking .text_wrap > ul li.on a {
+  color: #24a1e0;
+  border-bottom: 2px solid #24a1e0;
+}
+#ranking .text_wrap > ul li a {
+  padding: 10px;
+  display: block;
+  font: bold 20px/1 "맑은고딕";
+  color: #fff;
+  transition: 0.5s;
+}
+#ranking .text_wrap > ul li a:hover {
+  color: #559de0;
+}
+#ranking .text_wrap > ul li button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+#ranking .text_wrap > ul li button:hover i {
+  color: #24a1e0;
+}
+#ranking .text_wrap > ul li button i {
+  font-size: 30px;
+  color: #fff;
+  transition: 0.5s;
+}
+#ranking .ranking_box {
+  width: 50%;
+  height: 65vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  opacity: 0;
+  top: 0%;
+  left: 45%;
+  transform: translateX(-50%);
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#ranking .ranking_box > span {
+  position: absolute;
+  display: block;
+}
+#ranking .ranking_box > span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #494949);
+  animation: ranking-btn-anim1 4s linear infinite;
+}
+#ranking .ranking_box > span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #494949);
+  animation: ranking-btn-anim2 4s linear infinite;
+  animation-delay: 1s;
+}
+#ranking .ranking_box > span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(270deg, transparent, #494949);
+  animation: ranking-btn-anim3 4s linear infinite;
+  animation-delay: 2s;
+}
+#ranking .ranking_box > span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #494949);
+  animation: ranking-btn-anim4 4s linear infinite;
+  animation-delay: 3s;
+}
+#ranking .ranking_box > div {
+  opacity: 0;
+  z-index: 1;
+  transition: 1s;
+}
+#ranking .ranking_box > div.on {
+  opacity: 1;
+  z-index: 2;
+}
+#ranking .ranking_box .title {
+  position: absolute;
+  top: -8%;
+  left: -9%;
+  width: 300px;
+  height: 100px;
+}
+#ranking .ranking_box .title span {
+  font: bold 50px/1.6 "맑은고딕";
+  font-style: italic;
+  color: #fff;
+  padding-left: 30px;
+  text-align: center;
+  display: block;
+}
+#ranking .ranking_box .title span::before {
+  content: "";
+  width: 200px;
+  height: 170px;
+  display: block;
+  clip-path: polygon(10% 0, 100% 0%, 90% 18%, 0 18%);
+  background-color: #be0a0a;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  z-index: -10;
+}
+#ranking .ranking_box .title img {
+  width: 120px;
+  top: -20%;
+  left: 70%;
+  position: absolute;
+  animation: grandmaster 4s ease-out infinite;
+}
+#ranking .ranking_box .title img:hover {
+  filter: brightness(1.1);
+}
+#ranking .ranking_box .first {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 3vw;
+  display: flex;
+  flex-direction: column;
+}
+#ranking .ranking_box .first .ranking_text_top {
+  position: relative;
+  width: 5vw;
+  height: 5vw;
+}
+#ranking .ranking_box .first .ranking_text_top img {
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  width: 5vw;
+  height: 5vw;
+  object-fit: cover;
+}
+#ranking .ranking_box .first .ranking_pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vw;
+  margin-left: 2vw;
+}
+#ranking .ranking_box .first .ranking_pic img {
+  width: 15vw;
+  height: 15vw;
+}
+#ranking .ranking_box .first .ranking_pic::before {
+  content: "";
+  width: 16vw;
+  height: 16vw;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #be0a0a, #24a1e0);
+  animation: profile 3s linear infinite;
+  position: absolute;
+  z-index: -1;
+}
+#ranking .ranking_box .first .ranking_text_bottom {
+  width: 17vw;
+  height: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#ranking .ranking_box .first .ranking_text_bottom span {
+  font: bold 4vw/1 "맑은고딕";
+  font-style: italic;
+  color: #fff;
+}
+#ranking .ranking_box .ect {
+  width: 25vw;
+  margin-left: 20vw;
+  margin-top: 2vw;
+  position: absolute;
+  right: 1vw;
+  top: 0;
+}
+#ranking .ranking_box .ect ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#ranking .ranking_box .ect ul li {
+  width: 100%;
+  background-color: rgba(154, 181, 211, 0.5);
+  border-radius: 10px 0px 10px 0px;
+}
+#ranking .ranking_box .ect ul li:last-of-type span:nth-of-type(2) {
+  margin-left: 7vw;
+}
+#ranking .ranking_box .ect ul li span {
+  font: bold 20px/50px "맑은고딕";
+  font-style: italic;
+  padding-left: 1vw;
+  color: #fff;
+}
+#ranking .ranking_box .ect ul li span:nth-of-type(1) {
+  font: bold 24px/50px "맑은고딕";
+}
+#ranking .ranking_box .ect ul li span:nth-of-type(2) {
+  margin-left: 8vw;
+}
+#ranking > img {
+  position: absolute;
+  right: -10%;
+  top: 5%;
+  opacity: 0;
+}
+
+@media screen and (max-width: 820px) {
+  #ranking {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-around;
+  }
+  #ranking.on .text_wrap {
+    top: 15%;
+  }
+  #ranking.on > img {
+    display: none;
+  }
+  #ranking .text_wrap {
+    top: -20%;
+    left: 0%;
+    width: 100%;
+  }
+  #ranking .text_wrap .ranking_title {
+    font: bold 30px/1 "맑은고딕";
+  }
+  #ranking .ranking_box {
+    width: 70%;
+    height: 50vh;
+    position: absolute;
+    top: -80%;
+    left: 50%;
+  }
+  #ranking .ranking_box .title {
+    top: 0%;
+    left: 0%;
+  }
+  #ranking .ranking_box .title span {
+    font: bold 30px/100px "맑은고딕";
+    padding-left: 80px;
+    text-align: left;
+  }
+  #ranking .ranking_box .title span::before {
+    width: 16vw;
+    left: 15%;
+  }
+  #ranking .ranking_box .title img {
+    width: 10vw;
+    top: 10%;
+    left: 2%;
+  }
+  #ranking .ranking_box .first {
+    top: 20%;
+    left: 10%;
+  }
+  #ranking .ranking_box .first .ranking_text_top img {
+    top: 500%;
+  }
+  #ranking .ranking_box .first .ranking_text_bottom {
+    width: 20vw;
+    margin-top: 3vh;
+    margin-left: 1vw;
+  }
+  #ranking .ranking_box .ect {
+    width: 30vw;
+    right: 3vw;
+  }
+  #ranking .ranking_box .ect ul {
+    margin-top: 2vh;
+  }
+  #ranking .ranking_box .ect ul li {
+    height: 4vh;
+  }
+  #ranking .ranking_box .ect ul li:last-of-type span:nth-of-type(2) {
+    margin-left: 5vw;
+  }
+  #ranking .ranking_box .ect ul li span {
+    font: bold 2vw/4vh "맑은고딕";
+    padding-left: 2vw;
+  }
+  #ranking .ranking_box .ect ul li span:nth-of-type(1) {
+    font: bold 2vw/4vh "맑은고딕";
+  }
+  #ranking .ranking_box .ect ul li span:nth-of-type(2) {
+    margin-left: 6vw;
+  }
+}
+#hero {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../images/background/guide_bg.jpg);
+  position: relative;
+}
+#hero.on .hero_left_wrap {
+  left: 15%;
+  opacity: 1;
+  transition: left 1s 0.3s, opacity 0.5s 0.5s;
+}
+#hero.on .card {
+  top: 15%;
+  opacity: 1;
+  transition: 0.8s 1s;
+}
+#hero .hero_left_wrap {
+  position: absolute;
+  top: 20%;
+  left: -15%;
+  width: 40%;
+  height: 50%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+#hero .hero_left_wrap .hero_title {
+  font: bold 50px/1 "맑은고딕";
+  color: #fff;
+  margin-bottom: 50px;
+}
+#hero .hero_left_wrap .hero_tab ul {
+  width: 100%;
+  display: flex;
+  margin-bottom: 50px;
+  margin-right: 20px;
+}
+#hero .hero_left_wrap .hero_tab ul li.on a {
+  color: #2656e0;
+  border-bottom: 2px solid #2656e0;
+}
+#hero .hero_left_wrap .hero_tab ul li a {
+  padding: 10px;
+  display: block;
+  font: bold 20px/1 "맑은고딕";
+  color: #fff;
+  transition: 0.5s;
+}
+#hero .hero_left_wrap .hero_tab ul li a:hover {
+  color: #2656e0;
+}
+#hero .hero_left_wrap .hero_description {
+  width: 100%;
+  height: 200px;
+}
+#hero .hero_left_wrap .hero_description ul {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+}
+#hero .hero_left_wrap .hero_description ul li {
+  position: relative;
+  display: none;
+  height: 20vh;
+  transition: 0.5s;
+  top: -50%;
+  opacity: 0;
+}
+#hero .hero_left_wrap .hero_description ul li.on {
+  display: block;
+  top: 0%;
+  opacity: 1;
+}
+#hero .hero_left_wrap .hero_description ul li p {
+  margin-bottom: 50px;
+  font: normal 16px/1.5 "맑은고딕";
+  color: #fff;
+}
+#hero .hero_left_wrap .viewMore {
+  width: 100px;
+  padding: 8px 15px;
+  font: bold 16px/1 "맑은고딕";
+  text-align: center;
+  color: #fff;
+  background-color: #24a1e0;
+  border-radius: 5px;
+}
+#hero .card {
+  width: 666.6666666667px; /* 카드의 너비를 변수로 설정 */
+  height: 1000px; /* 카드의 높이를 변수로 설정 */
+  position: absolute; /* 상대적인 위치 설정 */
+  top: -10%;
+  left: 65%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  display: flex; /* 내용을 가운데 정렬하기 위해 플렉스 박스 사용 */
+  justify-content: center; /* 가로 가운데 정렬 */
+  align-items: flex-end; /* 세로 아래쪽 정렬 */
+  padding: 0 36px; /* 좌우 패딩 설정 */
+  perspective: 2500px; /* 3D 변형 효과를 위한 원근거리 설정 */
+}
+#hero .card .lines {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  overflow: hidden;
+  width: 676px;
+  height: 390px;
+  left: -5px;
+  top: 61.5%;
+}
+#hero .card .lines::before {
+  content: "";
+  display: block;
+  width: 1500px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(transparent, rgba(69, 243, 255, 0.768627451), #57677c, #738052, transparent);
+  animation: card 4s linear infinite;
+}
+#hero .card .cover-image {
+  width: 100%; /* 커버 이미지 너비 100%로 설정 */
+  height: 100%; /* 커버 이미지 높이 100%로 설정 */
+  object-fit: cover; /* 이미지가 요소에 맞게 잘리지 않고 채워지도록 설정 */
+}
+#hero .card .wrapper {
+  transition: all 0.5s; /* 모든 스타일 변경에 0.5초의 전환 효과 추가 */
+  position: absolute; /* 절대적인 위치 설정 */
+  width: 100%; /* 너비 100%로 설정 */
+  z-index: -1; /* 배경으로 요소 배치를 위해 z-index를 -1로 설정 */
+  z-index: 10;
+}
+#hero .card .wrapper::before, #hero .card .wrapper::after {
+  content: ""; /* 가상 요소의 내용 설정 */
+  opacity: 0; /* 초기에 투명도 0으로 설정 */
+  width: 100%; /* 너비 100%로 설정 */
+  height: 80px; /* 높이 80px로 설정 */
+  transition: all 0.5s; /* 모든 스타일 변경에 0.5초의 전환 효과 추가 */
+  position: absolute; /* 절대적인 위치 설정 */
+  left: 0; /* 왼쪽 위치 0으로 설정 */
+}
+#hero .card .wrapper::before {
+  top: 0; /* 위쪽 위치 0으로 설정 */
+  height: 100%; /* 높이 100%로 설정 */
+  background-image: linear-gradient(to top, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgb(12, 13, 19) 97%); /* 그라디언트 배경 이미지 설정 */
+}
+#hero .card .wrapper::after {
+  bottom: 0; /* 아래쪽 위치 0으로 설정 */
+  opacity: 1; /* 투명도 1로 설정 */
+  background-image: linear-gradient(to bottom, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgb(12, 13, 19) 97%); /* 그라디언트 배경 이미지 설정 */
+}
+#hero .card:hover .lines {
+  display: none;
+}
+#hero .card:hover .wrapper {
+  /* 카드에 호버 시의 .wrapper 스타일 설정 */
+  transform: perspective(900px) translateY(20%) rotateX(25deg) translateZ(0); /* 3D 변형 효과 적용 */
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* 그림자 효과 추가 */
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* 웹킷 브라우저용 그림자 효과 추가 */
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* 모질라 브라우저용 그림자 효과 추가 */
+}
+#hero .card:hover .wrapper::before, #hero .card:hover .wrapper::after {
+  opacity: 1; /* 호버 시 가상 요소의 투명도 1로 설정 */
+}
+#hero .card:hover .wrapper::after {
+  height: 120px; /* 호버 시 가상 요소 높이 120px로 설정 */
+}
+#hero .card:hover .character {
+  opacity: 1; /* 호버 시 투명도 1로 설정하여 이미지 표시 */
+  transform: translate3d(5%, 20%, 100px); /* 3D 변형을 사용하여 요소 이동 */
+}
+#hero .card .character {
+  width: 100%; /* 너비 100%로 설정 */
+  opacity: 0; /* 초기에 투명도 0으로 설정 */
+  transition: all 0.5s; /* 모든 스타일 변경에 0.5초의 전환 효과 추가 */
+  position: absolute; /* 절대적인 위치 설정 */
+  z-index: 10; /* 배경으로 요소 배치를 위해 z-index를 -1로 설정 */
+}
+
+#sub_community {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../../images/background/community.jpeg);
+  overflow: hidden;
+  position: relative;
+}
+#sub_community .inner {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 15vh 5vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#sub_community .inner h3 {
+  font: 40px/1 "Staatliches";
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 5vh;
+}
+#sub_community .inner .contentBox {
+  width: 80%;
+  height: 70vh;
+  margin: 0 auto;
+  background-color: rgba(19, 67, 138, 0.2);
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+#sub_community .inner .contentBox article {
+  position: relative;
+  opacity: 0;
+  z-index: 1;
+}
+#sub_community .inner .contentBox article.on {
+  opacity: 1;
+  z-index: 2;
+}
+#sub_community .inner .contentBox table {
+  width: 100%;
+  height: 100%;
+}
+#sub_community .inner .contentBox table thead {
+  width: 100%;
+}
+#sub_community .inner .contentBox table thead th {
+  padding: 1vh 0;
+  font: bold 22px/1 "Noto Sans KR";
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+#sub_community .inner .contentBox table tbody {
+  width: 100%;
+}
+#sub_community .inner .contentBox table tbody tr td {
+  font: normal 16px/1 "Noto Sans KR";
+  color: #fff;
+  padding: 1.5vh 2vw;
+  border-bottom: 1px solid #c5c5c5;
+  transition: 0.5s;
+  text-align: center;
+}
+#sub_community .inner .contentBox table tbody tr td:first-child {
+  text-align: left;
+}
+#sub_community .inner .contentBox table tbody tr td:first-child:hover {
+  color: #24a1e0;
+  cursor: pointer;
+}
+#sub_community .inner .contentBox .pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  margin-top: 5vh;
+}
+#sub_community .inner .contentBox .pagination a i {
+  font-size: 20px/1;
+  color: #fff;
+}
+#sub_community .inner .contentBox .pagination a i:hover {
+  color: #24a1e0;
+}
+#sub_community .inner .contentBox .pagination p a {
+  font-size: 20px/1;
+  color: #fff;
+  padding: 5px 10px;
+}
+#sub_community .inner .contentBox .pagination p a:hover {
+  color: #24a1e0;
+}
+#sub_community #pop {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: -50%;
+  opacity: 0;
+  z-index: 10;
+  background-color: rgba(39, 40, 41, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+#sub_community #pop.on {
+  right: 0;
+  opacity: 1;
+}
+#sub_community #pop .inner {
+  width: 80%;
+  height: 80%;
+  border: 1px solid #fff;
+  padding: 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+}
+#sub_community #pop .inner .title {
+  width: 100%;
+  display: flex;
+}
+#sub_community #pop .inner .title .name {
+  width: 10vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5vw;
+  font: bold 22px/1 "Noto Sans KR";
+  color: #fff;
+  border: 1px solid #fff;
+}
+#sub_community #pop .inner .title .date {
+  width: 10vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: bold 18px/1 "Noto Sans KR";
+  color: #fff;
+  border: 1px solid #fff;
+}
+#sub_community #pop .inner .subject {
+  font: bold 16px/1 "Noto Sans KR";
+  color: #fff;
+  border: 1px solid #fff;
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sub_community #pop .inner .content {
+  font: bold 16px/1.5 "Noto Sans KR";
+  color: #fff;
+  text-align: center;
+  border: 1px solid #fff;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#sub_community #pop .inner .fa-xmark {
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+#sub_community #pop .inner .fa-xmark:hover {
+  color: #24a1e0;
+}
+
+#sub_ranking {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../images/background/ranking_bg.jpg);
+  position: relative;
+}
+#sub_ranking.on .inner {
+  top: 0%;
+  opacity: 1;
+}
+#sub_ranking.on .inner .season_ranking {
+  top: 0%;
+  opacity: 1;
+}
+#sub_ranking .inner {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 15vh 5vh;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: 0.5s;
+  top: -50%;
+}
+#sub_ranking .inner .title {
+  width: 100%;
+  height: 3vw;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vw;
+}
+#sub_ranking .inner h3 {
+  width: 10%;
+  height: 3vw;
+  margin-right: 3vw;
+  font: bold 40px/3vw "arial";
+  color: #fff;
+}
+#sub_ranking .inner .season_ranking {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  opacity: 0;
+  top: -50%;
+  transition: 0.5s 0.5s;
+}
+#sub_ranking .inner .season_ranking a i {
+  position: absolute;
+  top: 50%;
+  color: #fff;
+  font-size: 30px;
+}
+#sub_ranking .inner .season_ranking section {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  perspective: 900px;
+  margin: 0 auto;
+}
+#sub_ranking .inner .season_ranking section .scene {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1800px;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel {
+  width: 300px;
+  height: 700px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: carousel 40s linear infinite;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel:hover {
+  animation-play-state: paused;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:hover li:nth-of-type(1)::before {
+  content: "";
+  width: 167px;
+  height: 167px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #be0a0a, #24a1e0);
+  animation: profile 3s linear infinite;
+  position: absolute;
+  top: -3%;
+  left: 12%;
+  z-index: -1;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(1) {
+  transform: rotateY(0deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(2) {
+  transform: rotateY(40deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(3) {
+  transform: rotateY(80deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(4) {
+  transform: rotateY(120deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(5) {
+  transform: rotateY(160deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(6) {
+  transform: rotateY(200deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(7) {
+  transform: rotateY(240deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(8) {
+  transform: rotateY(280deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(9) {
+  transform: rotateY(320deg) translateZ(430px);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article h4 {
+  text-align: center;
+  padding: 0px 0px 20px;
+  font: bold 25px/1 "맑은고딕";
+  color: #fff;
+  font-style: italic;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li {
+  display: flex;
+  position: relative;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) {
+  width: 100%;
+  height: 40%;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) span:nth-of-type(1) {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  background-color: initial;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) span:nth-of-type(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  background-color: initial;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) .pic {
+  margin: 0 auto;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li span {
+  padding: 5px 5px;
+  color: #fff;
+  font: 12px/1 "arial";
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li span:nth-of-type(1) {
+  position: absolute;
+  left: 20%;
+  transform: translateX(-50%);
+}
+#sub_ranking .inner .season_ranking section .scene .carousel article ul li span:nth-of-type(2) {
+  position: absolute;
+  left: 60%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 1179px) {
+  #sub_ranking {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../../images/background/ranking_bg.jpg);
+    position: relative;
+  }
+  #sub_ranking .inner {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 15vh 5vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #sub_ranking .inner .title {
+    width: 100%;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vw;
+  }
+  #sub_ranking .inner h3 {
+    width: 10%;
+    height: 3vw;
+    margin-right: 3vw;
+    font: bold 40px/3vw "arial";
+    color: #fff;
+  }
+  #sub_ranking .inner select {
+    width: 5vw;
+    height: 2vw;
+    border-radius: 5px;
+  }
+  #sub_ranking .inner .season_ranking {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+  }
+  #sub_ranking .inner .season_ranking a i {
+    position: absolute;
+    top: 50%;
+    color: #fff;
+    font-size: 30px;
+  }
+  #sub_ranking .inner .season_ranking section {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    perspective: 900px;
+    margin: 0 auto;
+  }
+  #sub_ranking .inner .season_ranking section .scene {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1800px;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel {
+    width: 300px;
+    height: 700px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: carousel 40s linear infinite;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel:hover {
+    animation-play-state: paused;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:hover li:nth-of-type(1)::before {
+    content: "";
+    width: 167px;
+    height: 167px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #be0a0a, #24a1e0);
+    animation: profile 3s linear infinite;
+    position: absolute;
+    top: -3%;
+    left: 12%;
+    z-index: -1;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(1) {
+    transform: rotateY(0deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(2) {
+    transform: rotateY(40deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(3) {
+    transform: rotateY(80deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(4) {
+    transform: rotateY(120deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(5) {
+    transform: rotateY(160deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(6) {
+    transform: rotateY(200deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(7) {
+    transform: rotateY(240deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(8) {
+    transform: rotateY(280deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article:nth-of-type(9) {
+    transform: rotateY(320deg) translateZ(430px);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article h4 {
+    text-align: center;
+    padding: 0px 0px 20px;
+    font: bold 25px/1 "맑은고딕";
+    color: #fff;
+    font-style: italic;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li {
+    display: flex;
+    position: relative;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) {
+    width: 100%;
+    height: 40%;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) span:nth-of-type(1) {
+    position: absolute;
+    left: 15%;
+    top: 15%;
+    background-color: initial;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) span:nth-of-type(2) {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    background-color: initial;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) .pic {
+    margin: 0 auto;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li:nth-of-type(1) .pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li span {
+    padding: 5px 5px;
+    color: #fff;
+    font: 12px/1 "arial";
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li span:nth-of-type(1) {
+    position: absolute;
+    left: 20%;
+    transform: translateX(-50%);
+  }
+  #sub_ranking .inner .season_ranking section .scene .carousel article ul li span:nth-of-type(2) {
+    position: absolute;
+    left: 60%;
+    transform: translateX(-50%);
+  }
+}
+#join {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../images/background/join_bg.jpeg);
+  position: relative;
+}
+#join .inner {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 15vh 5vh;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+#join .inner h3 {
+  text-align: center;
+  font: bold 70px/1 "arial";
+  font-style: italic;
+  letter-spacing: 2px;
+  color: #fff;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#join .inner form {
+  width: 40%;
+  height: 700px;
+  margin: 50px auto;
+  background-color: rgba(19, 71, 86, 0.5);
+  padding: 50px 50px;
+  border-radius: 20px;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5);
+}
+#join .inner form fieldset {
+  border: none;
+}
+#join .inner form fieldset table {
+  margin: 0 auto;
+}
+#join .inner form fieldset table caption {
+  animation: grandmaster 4s ease-out infinite;
+}
+#join .inner form fieldset table th,
+#join .inner form fieldset table td {
+  padding: 15px 25px;
+}
+#join .inner form fieldset table th {
+  width: 40%;
+}
+#join .inner form fieldset table th label {
+  font: 20px/1 "arial";
+  font-style: italic;
+  color: #fff;
+}
+#join .inner form fieldset table th input[type=submit] {
+  width: 80%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  font: bold 16px/40px "arial";
+  color: #24a1e0;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.5s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+#join .inner form fieldset table th input[type=submit]:hover {
+  background-color: #24a1e0;
+  color: #fff;
+}
+#join .inner form fieldset table td input[type=text],
+#join .inner form fieldset table td input[type=password],
+#join .inner form fieldset table td select {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(19, 71, 86, 0.5);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+#join .inner form fieldset table td input[type=text]:hover,
+#join .inner form fieldset table td input[type=password]:hover,
+#join .inner form fieldset table td select:hover {
+  background-color: #24a1e0;
+}
+#join .inner form fieldset table td p {
+  font: 12px/1 "맑은고딕";
+  color: rgb(184, 33, 33);
+  margin-top: 5px;
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#login {
+  width: 100%;
+  height: 100vh;
+}
+#login .login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 30px 30px 50px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+#login .login-box h3 {
+  margin: 0 0 50px;
+  font: bold 50px/1 "arial";
+  font-style: italic;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 5px;
+}
+#login .login-box .user-box {
+  position: relative;
+}
+#login .login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font: normal 16px/1 "arial";
+  font-style: italic;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+#login .login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font: normal 16px/1 "arial";
+  font-style: italic;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+#login .login-box .user-box input:focus ~ label,
+#login .login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #24a1e0;
+  font-size: 12px;
+}
+#login .login-box .submit-btn {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+}
+#login .login-box .submit-btn > span {
+  font: normal 14px/1 "맑은고딕";
+  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+#login .login-box .submit-btn a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #24a1e0;
+  font: bold 16px/1 "arial";
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+#login .login-box .submit-btn a:nth-of-type(2):hover {
+  background: #c5c5c5;
+  color: #494949;
+  box-shadow: 0 0 5px #c5c5c5, 0 0 25px #c5c5c5, 0 0 50px #c5c5c5, 0 0 100px #c5c5c5;
+}
+#login .login-box .submit-btn a:nth-of-type(2):hover span {
+  display: none;
+}
+#login .login-box .submit-btn a:hover {
+  background: #24a1e0;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #24a1e0, 0 0 25px #24a1e0, 0 0 50px #24a1e0, 0 0 100px #24a1e0;
+}
+#login .login-box .submit-btn a span {
+  position: absolute;
+  display: block;
+}
+#login .login-box .submit-btn a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #24a1e0);
+  animation: btn-anim1 1s linear infinite;
+}
+#login .login-box .submit-btn a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #24a1e0);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+#login .login-box .submit-btn a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #24a1e0);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+#login .login-box .submit-btn a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #24a1e0);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+#result {
+  width: 100%;
+  height: 100vh;
+}
+#result .bgImg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+}
+#result.on .inner .wrap {
+  top: 0px;
+  opacity: 1;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+#result.on .inner .wrap img {
+  opacity: 1;
+}
+#result.on .inner .wrap p {
+  opacity: 1;
+}
+#result.on .inner .wrap span {
+  opacity: 1;
+}
+#result.on .inner .wrap a {
+  opacity: 1;
+}
+#result .inner {
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+#result .inner .wrap {
+  position: relative;
+  top: -500px;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 5vw 1vw;
+  opacity: 0;
+  transition: 0.5s;
+}
+#result .inner .wrap img {
+  opacity: 0;
+  transition: 0.5s 0.25s;
+  animation: result_logo 1.5s linear 1;
+  margin-bottom: 2vh;
+}
+#result .inner .wrap p {
+  font: bold 2vw/1 "Noto Sans KR";
+  margin-bottom: 2vh;
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s 0.5s;
+}
+#result .inner .wrap span {
+  font: bold 2vw/1 "Noto Sans KR";
+  display: block;
+  margin-bottom: 5vh;
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s 0.75s;
+}
+#result .inner .wrap a {
+  font: bold 1vw/1 "Noto Sans KR";
+  color: #494949;
+  padding: 1vh 2vw;
+  background-color: #fff;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s 1s;
+}
+#result .inner .wrap a:hover {
+  color: #fff;
+  background-color: #24a1e0;
+  transition: 0.5s;
+}
+
+header {
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  display: flex;
+  transition: 1s;
+}
+header:hover {
+  background-color: #fff;
+}
+header:hover a {
+  color: #494949;
+}
+header .logo {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+header .BGgnb {
+  width: 100%;
+  height: 30vh;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  background-color: rgba(234, 234, 234, 0.2);
+  display: none;
+}
+header nav {
+  flex: 4.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header nav #gnb {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+header nav #gnb li {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+header nav #gnb li:hover a {
+  color: #494949;
+}
+header nav #gnb li:hover a::after {
+  opacity: 1;
+  transition: 0.5s;
+}
+header nav #gnb li a {
+  width: 100px;
+  height: 100%;
+  display: block;
+  font: normal 1.5rem/1 "Staatliches";
+  letter-spacing: 1px;
+  color: #24a1e0;
+  text-align: center;
+  margin-top: 2px;
+}
+header nav #gnb li a::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 2px;
+  background-color: #494949;
+  margin: 5px auto 0px;
+  opacity: 0;
+}
+header .btnCall {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+header .gnb_Mo {
+  display: none;
+}
+header .btn_gameStart {
+  padding-right: 50px;
+  flex: 1.5;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, rgba(234, 234, 234, 0.2), #24a1e0);
+  color: #fff;
+}
+header .btn_gameStart:hover a i {
+  color: #24a1e0;
+}
+header .btn_gameStart a i {
+  color: #fff;
+  font-size: 30px;
+  transition: 0.5s;
+}
+header .btn_gameStart span {
+  animation: btn_gameStart 3s 0.5s linear infinite;
+  font: normal 20px/1 "Staatliches";
+}
+
+@media screen and (max-width: 820px) {
+  header .logo {
+    flex: 2;
+  }
+  header .logo a {
+    width: 100px;
+    height: 100px;
+  }
+  header .logo a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  header nav {
+    flex: 7;
+  }
+  header nav #gnb li a {
+    font: normal 1.3rem/1 "Staatliches";
+  }
+  header .btn_gameStart {
+    flex: 1;
+    padding-right: 0;
+  }
+  header .btn_gameStart a i {
+    font-size: 3vw;
+  }
+  header .btn_gameStart span {
+    display: none;
+  }
+}
+@media screen and (max-width: 375px) {
+  header .logo {
+    flex: 2;
+  }
+  header .logo a {
+    width: 50px;
+    height: 50px;
+  }
+  header .logo a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  header nav {
+    flex: 0;
+  }
+  header nav #gnb {
+    display: none;
+  }
+  header .btnCall {
+    display: block;
+  }
+  header .btn_gameStart {
+    display: none;
+  }
+}
+footer {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background-color: #24a1e0;
+}
+footer .inner {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  text-align: center;
+}
+footer .inner p {
+  font: normal 14px/1.5 "Noto Sans KR";
+  color: #fff;
+  cursor: pointer;
+}
+footer .inner .copyright {
+  font: normal 14px/1 "arial";
+  color: #494949;
+}
+footer .inner .sns a img {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.wrap {
+  width: 100%;
+  overflow: hidden;
+}
+.wrap main {
+  width: 100%;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=style.css.map */

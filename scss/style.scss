@@ -1,0 +1,42 @@
+// common
+
+@import "./common/reset";
+@import "./common/mixin";
+@import "./common/color";
+@import "./common/font";
+@import "./common/animation";
+
+// main
+@import "./main/main_slide";
+@import "./main/news";
+@import "./main/league";
+@import "./main/ranking";
+@import "./main/hero";
+// sub
+@import "../scss/sub/sub_community";
+@import "../scss/sub/sub_rangking";
+@import "../scss/sub/sub_join";
+@import "../scss/sub/sub_login";
+@import "../scss/sub/sub_result";
+// header
+@import "../scss/header/header";
+// footer
+@import "../scss/footer/footer";
+// wrap
+
+// tablet : iPad Air
+$tablet: 820px;
+// mobile : iPhone 12 mini
+$mobile: 375px;
+
+.wrap {
+  width: 100%;
+  // height: calc(100vh * 5 + 600px);
+  overflow: hidden;
+
+  main {
+    width: 100%;
+    // height: 500vh;
+    overflow: hidden;
+  }
+}

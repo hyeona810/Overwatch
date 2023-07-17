@@ -1,0 +1,105 @@
+#join {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../../images/background/join_bg.jpeg);
+  position: relative;
+
+  .inner {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 15vh 5vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    h3 {
+      text-align: center;
+      font: bold 70px/1 "arial";
+      font-style: italic;
+      letter-spacing: 2px;
+      color: $default_color_light;
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    form {
+      width: 40%;
+      height: 700px;
+      margin: 50px auto;
+      background-color: rgba(19, 71, 86, 0.5);
+      padding: 50px 50px;
+      border-radius: 20px;
+      box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.5);
+
+      fieldset {
+        border: none;
+
+        table {
+          margin: 0 auto;
+
+          caption {
+            animation: grandmaster 4s ease-out infinite;
+          }
+
+          th,
+          td {
+            padding: 15px 25px;
+          }
+          th {
+            width: 40%;
+            label {
+              font: 20px/1 "arial";
+              font-style: italic;
+              color: $default_color_light;
+            }
+
+            input[type="submit"] {
+              width: 80%;
+              height: 40px;
+              border: none;
+              border-radius: 10px;
+              font: bold 16px/40px "arial";
+              color: $main_color;
+              cursor: pointer;
+              margin: 10px;
+              transition: 0.5s;
+              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+              &:hover {
+                background-color: $main_color;
+                color: $default_color_light;
+              }
+            }
+          }
+
+          td {
+            input[type="text"],
+            input[type="password"],
+            select {
+              position: relative;
+              width: 100%;
+              padding: 10px;
+              border: 1px solid rgba(19, 71, 86, 0.5);
+              border-radius: 5px;
+              transition: 0.5s;
+
+              &:hover {
+                background-color: $main_color;
+              }
+            }
+
+            // 동적으로 생성될 에러메세지 스타일
+            p {
+              font: 12px/1 "맑은고딕";
+              color: rgb(184, 33, 33);
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
