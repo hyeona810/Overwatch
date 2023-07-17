@@ -1083,6 +1083,7 @@ button {
   font: bold 20px/1 "맑은고딕";
   color: #fff;
   transition: 0.5s;
+  border-bottom: 2px solid transparent;
 }
 #ranking .text_wrap > ul li a:hover {
   color: #559de0;

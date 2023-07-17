@@ -380,9 +380,6 @@ fetch(url)
                 <a href="${el.snippet.resourceId.videoId}" class="pic">
                     <img src="${el.snippet.thumbnails.medium.url}">
                 </a>
-                <div class="con">
-                    <h4>${title}</h4>
-                </div>
             </li>
             
             `;
