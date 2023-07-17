@@ -334,7 +334,7 @@ button {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url(../../images/);
+  background-image: url(../images/background/news_bg.jpg);
 }
 #news .wrap {
   margin: 150px auto;
@@ -1033,7 +1033,7 @@ button {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url(../../images/background/ranking_bg.jpg);
+  background-image: url(../images/background/ranking_bg.jpg);
   position: relative;
 }
 #ranking.on .text_wrap {
@@ -1385,7 +1385,7 @@ button {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url(../../images/background/guide_bg.jpg);
+  background-image: url(../images/background/guide_bg.jpg);
   position: relative;
 }
 #hero.on .hero_left_wrap {
@@ -1566,7 +1566,7 @@ button {
 #sub_community {
   width: 100%;
   min-height: 100vh;
-  background-image: url(../../images/background/community.jpeg);
+  background-image: url(../images/background/community.jpeg);
   overflow: hidden;
   position: relative;
 }
@@ -1746,7 +1746,7 @@ button {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url(../../images/background/ranking_bg.jpg);
+  background-image: url(../images/background/ranking_bg.jpg);
   position: relative;
 }
 #sub_ranking.on .inner {
@@ -2126,7 +2126,7 @@ button {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url(../../images/background/join_bg.jpeg);
+  background-image: url(../images/background/join_bg.jpeg);
   position: relative;
 }
 #join .inner {
