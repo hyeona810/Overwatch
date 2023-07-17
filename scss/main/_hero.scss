@@ -55,6 +55,7 @@
             font: bold 20px/1 "맑은고딕";
             color: $default_color_light;
             transition: 0.5s;
+            border-bottom: 2px solid transparent;
 
             &:hover {
               color: $main_color_deep;

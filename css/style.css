@@ -1429,6 +1429,7 @@ button {
   font: bold 20px/1 "맑은고딕";
   color: #fff;
   transition: 0.5s;
+  border-bottom: 2px solid transparent;
 }
 #hero .hero_left_wrap .hero_tab ul li a:hover {
   color: #2656e0;
